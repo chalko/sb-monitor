@@ -2,15 +2,12 @@ version: '2'
 
 services: 
   collectd:
-    image: puckel/docker-collectd
-    privileged: true
-    network_mode: host
+    build: docker/collectd/.
   influxdb:
     image: influxdb
     ports:
       - "8083:8083"
       - "8086:8086"
-      - "25826:25826/udp"
     volumes:
       - ./influxdb-data:/var/lib/influxdb
       - ./docker/influxdb/influxdb.conf:/etc/influxdb/influxdb.conf
