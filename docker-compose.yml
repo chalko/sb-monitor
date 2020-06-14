@@ -1,19 +1,24 @@
 version: '2'
 
 services: 
+  collectd:
+    image: puckel/docker-collectd
+    privileged: true
+    network_mode: host
   influxdb:
-    image: influxdb:1.4
+    image: influxdb
     ports:
+      - "8083:8083"
       - "8086:8086"
       - "25826:25826/udp"
     volumes:
       - ./influxdb-data:/var/lib/influxdb
       - ./docker/influxdb/influxdb.conf:/etc/influxdb/influxdb.conf
       - ./docker/influxdb/types.db:/usr/share/collectd/types.db:ro
- grafana:
-   image: grafana/grafana
-   user: "root"
-   ports:
-     - "3000:3000"
-   volumes:
-     - ./grafana-storage:/var/lib/grafana
+  grafana:
+    image: grafana/grafana
+    user: "root"
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./grafana-storage:/var/lib/grafana
