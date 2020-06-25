@@ -9,7 +9,7 @@ RUN install_packages collectd python-requests python-beautifulsoup
 
 COPY collectd.conf /etc/collectd/collectd.conf
 COPY collectd.conf.d /etc/collectd/collectd.conf.d
-COPY plugins /etc/collectd/plugins/
+COPY modules /etc/collectd/modules
 
 EXPOSE 25826
 
