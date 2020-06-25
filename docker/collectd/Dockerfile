@@ -4,11 +4,12 @@ FROM balenalib/raspberrypi3-debian:latest
 # Set the working directory.
 WORKDIR /usr/src/app
 
-RUN install_packages collectd
+RUN install_packages collectd python-requests python-beautifulsoup
 
 
 COPY collectd.conf /etc/collectd/collectd.conf
 COPY collectd.conf.d /etc/collectd/collectd.conf.d
+COPY plugins /etc/collectd/plugins/
 
 EXPOSE 25826
 
