@@ -8,6 +8,7 @@ RUN install_packages collectd python-requests python-beautifulsoup
 
 
 COPY collectd.conf /etc/collectd/collectd.conf
+COPY arris_modem_types.db /etc/collectd/arris_modem_types.db
 COPY collectd.conf.d /etc/collectd/collectd.conf.d
 COPY modules /etc/collectd/modules
 
