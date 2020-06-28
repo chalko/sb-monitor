@@ -1,0 +1,3 @@
+[submodule "docker/pentair/screenlogic-api"]
+	path = docker/pentair/screenlogic-api
+	url = https://github.com/mikemucc/screenlogic-api.git
