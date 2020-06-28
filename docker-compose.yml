@@ -7,6 +7,10 @@ services:
     build: docker/pentair/.
     ports:
       - "8000:3000"
+  telegraf:
+    image: telegraf
+    volumes:
+        - ./docker/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro 
   influxdb:
     image: influxdb
     ports:
