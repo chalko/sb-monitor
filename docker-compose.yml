@@ -19,7 +19,7 @@ services:
       - "25826:25826/udp"
     volumes:
       - ./influxdb-data:/var/lib/influxdb
-      - ./docker/influxdb/influxdb.conf:/etc/influxdb/influxdb.conf
+      #- ./docker/influxdb/influxdb.conf:/etc/influxdb/influxdb.conf
       - ./docker/influxdb/types.db:/usr/share/collectd/types.db:ro
   grafana:
     image: grafana/grafana
