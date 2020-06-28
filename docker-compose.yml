@@ -1,8 +1,12 @@
 version: '2'
 
 services: 
-  collectd:
-    build: docker/collectd/.
+  #  collectd:
+  #    build: docker/collectd/.
+  pentair:
+    build: docker/pentair/.
+    ports:
+      - "8000:3000"
   influxdb:
     image: influxdb
     ports:
