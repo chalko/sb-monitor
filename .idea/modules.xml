@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/sb-monitor.iml" filepath="$PROJECT_DIR$/.idea/sb-monitor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/docker/sb-status/sb-status.iml" filepath="$PROJECT_DIR$/docker/sb-status/sb-status.iml" />
     </modules>
   </component>
 </project>
