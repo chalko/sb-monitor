@@ -3,8 +3,8 @@
 from flask import Flask
 from bs4 import BeautifulSoup
 import requests
-import json
 import requests_cache
+from flask import jsonify
 
 requests_cache.install_cache()
 
@@ -23,15 +23,13 @@ def hello_world():
 
     downChannels = parseDownstream(downstream.find_all_next('td'))
     upChannels = parseUpstream(upstream.find_all_next('td'))
-    return downChannels
-
-
+    return jsonify(downChannels=downChannels,upChannels=upChannels)
 
 
 def parseDownstream(obj):
     channels = []
     channelDescr = []
-    channelList = []
+    channelList = {}
 
     skipNext = 0
     for v in obj:
@@ -65,7 +63,7 @@ def parseDownstream(obj):
             'uncorrected': int(channel[7])
         }
 
-        channelList.append(channelDescr)
+        channelList[channelDescr["id"]]= channelDescr
 
     return channelList
 
