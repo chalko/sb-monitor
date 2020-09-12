@@ -29,7 +29,7 @@ def hello_world():
 def parseDownstream(obj):
     channels = []
     channelDescr = []
-    channelList = {}
+    channelSet = {}
 
     skipNext = 0
     for v in obj:
@@ -63,15 +63,15 @@ def parseDownstream(obj):
             'uncorrected': int(channel[7])
         }
 
-        channelList[channelDescr["id"]]= channelDescr
+        channelSet[channelDescr["id"]]= channelDescr
 
-    return channelList
+    return channelSet
 
 
 def parseUpstream(obj):
     channels = []
     channelDescr = []
-    channelList = []
+    channelSet = {}
 
     skipNext = 0
     for v in obj:
@@ -100,6 +100,6 @@ def parseUpstream(obj):
             'power': float(channel[6].split()[0]),
         }
 
-        channelList.append(channelDescr)
+        channelSet[channelDescr['id']]=channelDescr
 
-    return channelList
+    return channelSet
