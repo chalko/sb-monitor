@@ -1,2 +1,5 @@
 flask=1.1
 lxml
+requests-cache
+bs4
+requests
