@@ -1,9 +1,9 @@
 # flask_web/app.py
 
-from flask import Flask
-from bs4 import BeautifulSoup
 import requests
 import requests_cache
+from bs4 import BeautifulSoup
+from flask import Flask
 from flask import jsonify
 
 requests_cache.install_cache()
@@ -23,7 +23,7 @@ def hello_world():
 
     downChannels = parseDownstream(downstream.find_all_next('td'))
     upChannels = parseUpstream(upstream.find_all_next('td'))
-    return jsonify(downChannels=downChannels,upChannels=upChannels)
+    return jsonify(downChannels=downChannels, upChannels=upChannels)
 
 
 def parseDownstream(obj):
@@ -63,7 +63,7 @@ def parseDownstream(obj):
             'uncorrected': int(channel[7])
         }
 
-        channelSet[channelDescr["id"]]= channelDescr
+        channelSet[channelDescr["id"]] = channelDescr
 
     return channelSet
 
@@ -100,6 +100,6 @@ def parseUpstream(obj):
             'power': float(channel[6].split()[0]),
         }
 
-        channelSet[channelDescr['id']]=channelDescr
+        channelSet[channelDescr['id']] = channelDescr
 
     return channelSet
