@@ -1,4 +1,5 @@
-venv
+/venv
 *.swp
 __pycache__/
 
+/cache.sqlite
