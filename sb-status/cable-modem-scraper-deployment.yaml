@@ -24,7 +24,7 @@ spec:
         io.kompose.service: cable-modem-scraper
     spec:
       containers:
-      - image: cable-modem-scraper
+      - image: chalko/cable-modem-scraper:latest
         imagePullPolicy: ""
         name: cable-modem-scraper
         ports:
