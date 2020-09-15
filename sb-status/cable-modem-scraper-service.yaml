@@ -10,9 +10,7 @@ metadata:
   name: cable-modem-scraper
 spec:
   ports:
-  - name: "5000"
-    port: 5000
-    targetPort: 5000
+    - port: 5000
   selector:
     io.kompose.service: cable-modem-scraper
 status:

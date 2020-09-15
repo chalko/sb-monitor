@@ -3,4 +3,5 @@ services:
   cable-modem-scraper:
     build: .
     ports:
-      - "5000:5000"
+      - "5000"
+
