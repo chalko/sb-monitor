@@ -49,24 +49,18 @@ endif
 
 
 
-docker_build:
+docker_push:
 	# Build Docker image
 	docker buildx build \
-  --push \
-  --platform linux/arm/v7,linux/arm64/v8,linux/amd64 \
-  --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
-  --build-arg VERSION=$(CODE_VERSION) \
-  --build-arg VCS_URL=`git config --get remote.origin.url` \
-  --build-arg VCS_REF=$(GIT_COMMIT) \
-	-t $(DOCKER_IMAGE):$(DOCKER_TAG) .
+	  --push \
+      --platform linux/arm/v7,linux/arm64/v8,linux/amd64 \
+      --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
+      --build-arg VERSION=$(CODE_VERSION) \
+      --build-arg VCS_URL=`git config --get remote.origin.url` \
+      --build-arg VCS_REF=$(GIT_COMMIT) \
+      -t $(DOCKER_IMAGE):$(DOCKER_TAG) \
+      -t $(DOCKER_IMAGE):latest .
 
-docker_push:
-	# Tag image as latest
-	docker tag $(DOCKER_IMAGE):$(DOCKER_TAG) $(DOCKER_IMAGE):latest
-
-	# Push to DockerHub
-	docker push $(DOCKER_IMAGE):$(DOCKER_TAG)
-	docker push $(DOCKER_IMAGE):latest
 
 output:
 	@echo Docker Image: $(DOCKER_IMAGE):$(DOCKER_TAG)
