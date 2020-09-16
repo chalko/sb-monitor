@@ -51,7 +51,9 @@ endif
 
 docker_build:
 	# Build Docker image
-	docker buildx build --load \
+	docker buildx build \
+  --push \
+  --platform linux/arm/v7,linux/arm64/v8,linux/amd64 \
   --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
   --build-arg VERSION=$(CODE_VERSION) \
   --build-arg VCS_URL=`git config --get remote.origin.url` \
