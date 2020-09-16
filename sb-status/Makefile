@@ -53,14 +53,17 @@ docker_push:
 	# Build Docker image
 	docker buildx build \
 	  --push \
-      --platform linux/arm/v7,linux/arm64/v8,linux/amd64 \
-      --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
-      --build-arg VERSION=$(CODE_VERSION) \
-      --build-arg VCS_URL=`git config --get remote.origin.url` \
-      --build-arg VCS_REF=$(GIT_COMMIT) \
-      -t $(DOCKER_IMAGE):$(DOCKER_TAG) \
-      -t $(DOCKER_IMAGE):latest .
-
+	  --platform linux/arm/v7,linux/arm64/v8,linux/amd64 \
+	  --label org.label-schema.build-date=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
+	  --label org.label-schema.name="Cable Mode Scraper" \
+	  --label org.label-schema.description="Scrapes the staus of a cable modem" \
+	  --label org.label-schema.vcs-ref=$(GIT_COMMIT) \
+	  --label org.label-schema.vcs-url="`git config --get remote.origin.url`" \
+	  --label org.label-schema.vendor="e.g. ACME Inc" \
+	  --label org.label-schema.version=$(CODE_VERSION) \
+	  --label org.label-schema.schema-version="1.0" \
+	  -t $(DOCKER_IMAGE):$(DOCKER_TAG) \
+	  -t $(DOCKER_IMAGE):latest .
 
 output:
 	@echo Docker Image: $(DOCKER_IMAGE):$(DOCKER_TAG)
