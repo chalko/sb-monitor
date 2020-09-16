@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 from flask import Flask
 from flask import jsonify
 
-requests_cache.install_cache(expire_after=300)
+requests_cache.install_cache(expire_after=30)
 
 app = Flask(__name__)
 
