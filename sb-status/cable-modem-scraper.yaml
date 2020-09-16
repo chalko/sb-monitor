@@ -1,10 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    kompose.cmd: /snap/kompose/19/kompose-linux-amd64 convert
-    kompose.version: 1.21.0 (992df58d8)
-  creationTimestamp: null
   labels:
     io.kompose.service: cable-modem-scraper
   name: cable-modem-scraper
@@ -16,10 +12,6 @@ spec:
   strategy: {}
   template:
     metadata:
-      annotations:
-        kompose.cmd: /snap/kompose/19/kompose-linux-amd64 convert
-        kompose.version: 1.21.0 (992df58d8)
-      creationTimestamp: null
       labels:
         io.kompose.service: cable-modem-scraper
     spec:
@@ -33,17 +25,12 @@ spec:
       restartPolicy: Always
       serviceAccountName: ""
       volumes: null
-status: {}
 
 ---
 
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    kompose.cmd: /snap/kompose/19/kompose-linux-amd64 convert
-    kompose.version: 1.21.0 (992df58d8)
-  creationTimestamp: null
   labels:
     io.kompose.service: cable-modem-scraper
   name: cable-modem-scraper
@@ -52,6 +39,4 @@ spec:
     - port: 5000
   selector:
     io.kompose.service: cable-modem-scraper
-status:
-  loadBalancer: {}
 
