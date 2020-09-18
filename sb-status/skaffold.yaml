@@ -3,6 +3,8 @@ kind: Config
 metadata:
   name: sb-status
 build:
+  tagPolicy:
+    gitCommit: {}
   artifacts:
   - image: chalko/cable-modem-scraper
 deploy:
