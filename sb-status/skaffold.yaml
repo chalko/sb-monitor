@@ -1,0 +1,12 @@
+apiVersion: skaffold/v2beta7
+kind: Config
+metadata:
+  name: sb-status
+build:
+  artifacts:
+  - image: chalko/cable-modem-scraper
+deploy:
+  kubectl:
+    manifests:
+    - cable-modem-scraper-ingress.yaml
+    - cable-modem-scraper.yaml
