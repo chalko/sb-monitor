@@ -8,5 +8,5 @@ build:
 deploy:
   kubectl:
     manifests:
-    - cable-modem-scraper-ingress.yaml
+#    - cable-modem-scraper-ingress.yaml
     - cable-modem-scraper.yaml
