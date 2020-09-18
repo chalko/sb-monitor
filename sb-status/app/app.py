@@ -37,7 +37,7 @@ def parseDownstream(obj):
             skipNext -= 1
             continue
 
-        if v.string == "Channel ID":
+        if v.string == "Channel  ID":
             skipNext = 7
             continue
 
