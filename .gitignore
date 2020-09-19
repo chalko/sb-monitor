@@ -2,4 +2,4 @@
 *-data/
 out
 *.lock
-*/charts/*.tgz
+*.tgz
