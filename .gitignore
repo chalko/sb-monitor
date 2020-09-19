@@ -1,3 +1,5 @@
 *-storage/
 *-data/
 out
+*.lock
+*/charts/*.tgz
