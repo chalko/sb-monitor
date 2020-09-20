@@ -7,7 +7,11 @@ replicaCount: 1
 telegraf:
   image:
     tag: "1.15"
-
+  config:
+    outputs:
+      - influxdb:
+          urls:
+            - "http://first-post-influxdb:8086"
 influxdb:
   image:
     tag: "1.8.0"
