@@ -11,4 +11,8 @@ appVersion: 0.1.0
 dependencies:
   - name: telegraf
     version: 1.7.23
-    repository: https://helm.influxdata.com/
+    repository: https://influxdata.github.io/helm-charts
+  - name: influxdb
+    version: 4.8.4
+    repository: https://influxdata.github.io/helm-charts
+

@@ -7,4 +7,8 @@ replicaCount: 1
 telegraf:
   image:
     tag: "1.15"
+
+influxdb:
+  image:
+    tag: "1.8.0"
     pullPolicy: Always
