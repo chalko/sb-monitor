@@ -6,5 +6,5 @@ replicaCount: 1
 
 telegraf:
   image:
-    tag: "1.15-alpine"
+    tag: "1.15"
     pullPolicy: Always
