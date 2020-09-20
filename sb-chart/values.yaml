@@ -12,6 +12,7 @@ telegraf:
       - influxdb:
           urls:
             - "http://first-post-influxdb:8086"
+          database: "telegraf"
 influxdb:
   image:
     tag: "1.8.0"
