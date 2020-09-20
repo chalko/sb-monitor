@@ -15,4 +15,7 @@ dependencies:
   - name: influxdb
     version: 4.8.4
     repository: https://influxdata.github.io/helm-charts
+  - name: grafana
+    version: 5.6.7
+    repository: https://grafana.github.io/helm-charts
 
